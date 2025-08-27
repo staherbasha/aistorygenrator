@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Story Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-magic"></i>
+                    <h1>AI Story Generator</h1>
+                </div>
+                <p class="subtitle">Create amazing stories with the power of AI</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Story Configuration Panel -->
+            <div class="config-panel">
+                <div class="input-section">
+                    <label for="prompt">Story Prompt</label>
+                    <textarea 
+                        id="prompt" 
+                        placeholder="Enter your story idea, characters, or setting... (e.g., 'A detective discovers a mysterious letter')"
+                        rows="4"
+                    ></textarea>
+                </div>
+
+                <div class="options-grid">
+                    <div class="option-group">
+                        <label for="genre">Genre</label>
+                        <select id="genre">
+                            <option value="">Any Genre</option>
+                            <option value="fantasy">Fantasy</option>
+                            <option value="sci-fi">Science Fiction</option>
+                            <option value="mystery">Mystery</option>
+                            <option value="romance">Romance</option>
+                            <option value="horror">Horror</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="comedy">Comedy</option>
+                            <option value="drama">Drama</option>
+                            <option value="thriller">Thriller</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label for="tone">Tone</label>
+                        <select id="tone">
+                            <option value="">Neutral</option>
+                            <option value="funny">Funny</option>
+                            <option value="serious">Serious</option>
+                            <option value="dark">Dark</option>
+                            <option value="light-hearted">Light-hearted</option>
+                            <option value="mysterious">Mysterious</option>
+                            <option value="romantic">Romantic</option>
+                            <option value="suspenseful">Suspenseful</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label for="style">Writing Style</label>
+                        <select id="style">
+                            <option value="">Standard</option>
+                            <option value="descriptive">Descriptive</option>
+                            <option value="dialogue-heavy">Dialogue Heavy</option>
+                            <option value="action-packed">Action Packed</option>
+                            <option value="poetic">Poetic</option>
+                            <option value="minimalist">Minimalist</option>
+                            <option value="classic">Classic</option>
+                            <option value="modern">Modern</option>
+                        </select>
+                    </div>
+
+                    <div class="option-group">
+                        <label for="length">Story Length</label>
+                        <select id="length">
+                            <option value="short">Short (200-400 words)</option>
+                            <option value="medium">Medium (400-800 words)</option>
+                            <option value="long">Long (800-1200 words)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="keywords-section">
+                    <label for="keywords">Keywords (optional)</label>
+                    <input 
+                        type="text" 
+                        id="keywords" 
+                        placeholder="Enter keywords separated by commas (e.g., castle, dragon, magic)"
+                    >
+                </div>
+
+                <div class="api-key-section">
+                    <label for="apiKey">Google Gemini API Key</label>
+                    <input 
+                        type="password" 
+                        id="apiKey" 
+                        placeholder="Enter your Gemini API key"
+                    >
+                    <small class="api-help">
+                        <i class="fas fa-info-circle"></i>
+                        Get your free API key from <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a>
+                    </small>
+                </div>
+
+                <button id="generateBtn" class="generate-btn">
+                    <i class="fas fa-magic"></i>
+                    Generate Story
+                </button>
+            </div>
+
+            <!-- Story Display -->
+            <div class="story-section">
+                <div class="story-header">
+                    <h2>Your Generated Story</h2>
+                    <div class="story-actions">
+                        <button id="copyBtn" class="action-btn" title="Copy to clipboard">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                        <button id="downloadBtn" class="action-btn" title="Download as text file">
+                            <i class="fas fa-download"></i>
+                        </button>
+                        <button id="shareBtn" class="action-btn" title="Share story">
+                            <i class="fas fa-share"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="storyOutput" class="story-output">
+                    <div class="placeholder">
+                        <i class="fas fa-book-open"></i>
+                        <p>Your AI-generated story will appear here...</p>
+                        <p class="placeholder-sub">Enter a prompt and click "Generate Story" to begin</p>
+                    </div>
+                </div>
+
+                <div id="loadingIndicator" class="loading-indicator hidden">
+                    <div class="spinner"></div>
+                    <p>Crafting your story with AI magic...</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by Google Gemini AI • Built with ❤️ for storytellers</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
